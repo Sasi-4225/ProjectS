@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment - 24 Pharmacy</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #0fbff5;
+      padding: 15px;
+      color: white;
+    }
+    .header img {
+      height: 40px;
+    }
+    .navbar {
+      background-color: #9fcffc;
+      padding: 10px;
+      text-align: center;
+      color: white;
+      font-size: 24px;
+    }
+    .payment-container {
+      width: 90%;
+      max-width: 500px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+    .order-summary {
+      padding: 10px;
+      border-bottom: 2px solid #ddd;
+      margin-bottom: 15px;
+    }
+    .input-field {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .pay-btn {
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .pay-btn:hover {
+      background-color: #333;
+    }
+    .footer {
+      background-color: black;
+      text-align: center;
+      padding: 10px;
+      color: white;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="pharmacy.jpg" alt="Company Logo">
+  </div>
+
+  <div class="navbar">Payment</div>
+
+  <div class="payment-container">
+    <h2>Order Summary</h2>
+    <div class="order-summary" id="orderSummary">
+      <p><strong>Name:</strong> <span id="userName"></span></p>
+      <p><strong>Phone:</strong> <span id="userPhone"></span></p>
+      <p><strong>Address:</strong> <span id="userAddress"></span></p>
+    </div>
+
+    <h2>Payment Details</h2>
+    <select class="input-field" id="paymentMethod">
+      <option value="credit_card">Credit Card</option>
+      <option value="debit_card">Debit Card</option>
+      <option value="upi">UPI</option>
+      <option value="cod">Cash on Delivery</option>
+    </select>
+
+    <input type="text" id="cardNumber" class="input-field" placeholder="Card Number (if applicable)">
+    <input type="text" id="cvv" class="input-field" placeholder="CVV (if applicable)">
+    
+    <button class="pay-btn" onclick="completePayment()">Complete Payment</button>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 24 Pharmacy. All rights reserved.
+  </div>
+
+  <script>
+    // Load order details from localStorage
+    function loadOrderDetails() {
+      const orderDetails = JSON.parse(localStorage.getItem("orderDetails"));
+
+      if (orderDetails) {
+        document.getElementById("userName").textContent = orderDetails.name;
+        document.getElementById("userPhone").textContent = orderDetails.phone;
+        document.getElementById("userAddress").textContent = orderDetails.address;
+      } else {
+        alert("No order details found!");
+        window.location.href = "index.html"; // Redirect to home if no details
+      }
+    }
+
+    // Handle payment process
+    function completePayment() {
+      const paymentMethod = document.getElementById("paymentMethod").value;
+      const cardNumber = document.getElementById("cardNumber").value.trim();
+      const cvv = document.getElementById("cvv").value.trim();
+
+      if ((paymentMethod === "credit_card" || paymentMethod === "debit_card") && (!cardNumber || !cvv)) {
+        alert("Please enter card details.");
+        return;
+      }
+
+      alert("Payment Successful! Your order has been placed.");
+      localStorage.removeItem("cart"); // Clear the cart after payment
+      localStorage.removeItem("orderDetails"); // Clear order details
+      window.location.href = "order_confirmation.html"; // Redirect to order confirmation page
+    }
+
+    window.onload = loadOrderDetails;
+  </script>
+
+</body>
+</html>

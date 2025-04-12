@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HeartCare - Pharmacy</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f8fa;
+    }
+
+    .navbar {
+      background-color: #dc143c;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .product-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    .product {
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      width: 220px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+    }
+
+    .product img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .product h3 {
+      font-size: 18px;
+      margin: 10px 0 5px;
+      color: #333;
+    }
+
+    .product p {
+      font-size: 14px;
+      margin: 2px 0;
+      color: #555;
+    }
+
+    .product button {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background-color: #dc143c;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .product button:hover {
+      background-color: #b21234;
+    }
+
+    .footer {
+      background-color: #f1f1f1;
+      color: #888;
+      text-align: center;
+      padding: 10px;
+      margin-top: 30px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">HeartCare Products</div>
+
+  <div class="product-container">
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/81SRD4hQv4L.AC_UL320.jpg" alt="Telma 40mg">
+      <h3>Telma 40mg</h3>
+      <p>Strength: 40 mg</p>
+      <p>Form: Tablet</p>
+      <p>Cost: 260/-</p>
+      <button onclick="location.href='orders.html'">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/91fucMwHo3L.AC_UL320.jpg" alt="Atorva 10mg">
+      <h3>Atorva 10mg</h3>
+      <p>Strength: 10 mg</p>
+      <p>Form: Tablet</p>
+      <p>Cost: 85/-</p>
+      <button onclick="location.href='orders.html'">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/91UhBU-75cL.AC_UL320.jpg" alt="Ecospirin 75mg">
+      <h3>Ecospirin 75mg</h3>
+      <p>Strength: 75 mg</p>
+      <p>Form: Tablet</p>
+      <p>Cost: 53/-</p>
+      <button onclick="location.href='orders.html'">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/81Dm5sd4L7L.AC_UL320.jpg" alt="Rosuvas 10mg">
+      <h3>Rosuvas 10mg</h3>
+      <p>Strength: 10 mg</p>
+      <p>Form: Tablet</p>
+      <p>Cost: 299/-</p>
+      <button onclick="location.href='orders.html'">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/71QBaI76X8L.AC_UL320.jpg" alt="Stamlo 5mg">
+      <h3>Stamlo 5mg</h3>
+      <p>Strength: 5 mg</p>
+      <p>Form: Tablet</p>
+      <p>Cost: 75/-</p>
+      <button onclick="location.href='orders.html'">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/91yAO9nit9L.AC_UL320.jpg " alt="Aten 50mg">
+      <h3>Aten 50mg</h3>
+      <p>Strength: 50 mg</p>
+      <p>Form: Tablet</p>
+      <p>Cost: 48/-</p>
+      <button onclick="location.href='orders.html'">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/71a+ilS6T4L.AC_UL320.jpg" alt="Clopitab A">
+      <h3>Clopitab A</h3>
+      <p>Strength: 75 mg</p>
+      <p>Form: Capsule</p>
+      <p>Cost: 120/-</p>
+      <button onclick="location.href='orders.html'">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/613ydELY6dL.AC_UL320.jpg" alt="Cilacar 10mg">
+      <h3>Cilacar 10mg</h3>
+      <p>Strength: 10 mg</p>
+      <p>Form: Tablet</p>
+      <p>Cost: 190/-</p>
+      <button onclick="location.href='orders.html'">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/61wNKyLXusL.AC_UL320.jpg" alt="Depura 60k">
+      <h3>Depura 60k</h3>
+      <p>Form: Oral Solution</p>
+      <p>Cost: 385/-</p>
+      <button onclick="location.href='orders.html'">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/61PhLZdcSxL.AC_UL320.jpg" alt="Nikoran OD 10mg">
+      <h3>Nikoran OD 10mg</h3>
+      <p>Strength: 10 mg</p>
+      <p>Form: Tablet</p>
+      <p>Cost: 78/-</p>
+      <button onclick="location.href='orders.html'">Add to Cart</button>
+    </div>
+
+    <!-- Extra Items -->
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/91dJFFJFoaL.AC_UL320.jpg" alt="Telpres AM">
+      <h3>Telpres AM</h3>
+      <p>Combination Therapy</p>
+      <p>Cost: 270/-</p>
+      <button onclick="location.href='orders.html'">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/81Y57838a9L.AC_UY218.jpg" alt="Angizem CD">
+      <h3>Angizem CD 90mg</h3>
+      <p>Strength: 90 mg</p>
+      <p>Form: Capsule</p>
+      <p>Cost: 130/-</p>
+      <button onclick="location.href='orders.html'">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/812TXnH+hVL.AC_UL320.jpg" alt="Cardace 5mg">
+      <h3>Cardace 5mg</h3>
+      <p>Strength: 5 mg</p>
+      <p>Form: Tablet</p>
+      <p>Cost: 123/-</p>
+      <button onclick="location.href='orders.html'">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/51jMCglqkcL.AC_UL320.jpg" alt="Bisoprolol 2.5mg">
+      <h3>Bisoprolol 2.5mg</h3>
+      <p>Strength: 2.5 mg</p>
+      <p>Form: Tablet</p>
+      <p>Cost: 65/-</p>
+      <button onclick="location.href='orders.html'">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/91sVofOP9bL.AC_UL320.jpg" alt="Trivedon MR 35mg">
+      <h3>Trivedon MR 35mg</h3>
+      <p>Form: Tablet</p>
+      <p>Cost: 190/-</p>
+      <button onclick="location.href='orders.html'">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 HeartCare Pharmacy. All rights reserved.
+  </div>
+
+</body>
+</html>

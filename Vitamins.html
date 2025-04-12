@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vitamins - 24 Pharmacy</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #0fbff5;
+      padding: 15px;
+      color: white;
+    }
+    .header img {
+      height: 40px;
+    }
+    .nav-links button {
+      background: transparent;
+      border: 1px solid white;
+      padding: 8px 15px;
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 0 10px;
+      transition: 0.3s;
+    }
+    .nav-links button:hover {
+      background: white;
+      color: #0fbff5;
+    }
+    .navbar {
+      background-color: #9fcffc;
+      padding: 10px;
+      text-align: center;
+      color: white;
+      font-size: 24px;
+    }
+    .product-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+    .product {
+      background: white;
+      margin: 15px;
+      padding: 15px;
+      width: 260px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+    .product:hover {
+      transform: scale(1.03);
+    }
+    .product img {
+      width: 100%;
+      height: 220px;
+      object-fit: contain;
+      border-radius: 8px;
+      background-color: #f0f0f0;
+      padding: 10px;
+    }
+    .product h3 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+    }
+    .product p {
+      margin: 4px 0;
+      font-size: 14px;
+    }
+    .product button {
+      padding: 10px;
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+    .product button:hover {
+      background-color: #333;
+    }
+    .footer {
+      background-color: black;
+      text-align: center;
+      padding: 10px;
+      color: white;
+      margin-top: 30px;
+    }
+  </style>
+  <script>
+    function addToCart(name, image, price) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push({ name, image, price });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      window.location.href = 'orders.html';
+    }
+  </script>
+<script>
+  function addToCart(name, image, price) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push({ name, image, price });
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    // Show a confirmation popup
+    alert(name + " has been added to your cart!");
+  }
+</script>
+
+</head>
+<body>
+  <div class="header">
+    <img src="pharmacy.jpg" alt="Company Logo">
+    <div class="nav-links">
+      <button onclick="location.href='home.html'">Home</button>
+      <button onclick="location.href='products.html'">Products</button>
+      <button onclick="location.href='orders.html'">Orders</button>
+      <button onclick="location.href='login2.html'">Login</button>
+    </div>
+  </div>
+
+  <div class="navbar">Vitamins</div>
+
+  <div class="product-container">
+    <div class="product">
+      <img src="https://www.drugs.com/images/pills/fio/NIV00201.JPG" alt="Vitamin D3">
+      <h3>Vitamin D3</h3>
+      <p>Strength: 50,000 IU</p>
+      <p>Cost: 120/-</p>
+      <button onclick="addToCart('Vitamin D3', 'https://www.drugs.com/images/pills/fio/NIV00201.JPG', '120/-')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoLHERPhQwQg7iY8oiDhkAligTeO5tGLdQgw&s" alt="Vitamin D2">
+      <h3>Vitamin D2</h3>
+      <p>Strength: 50,000 USP units</p>
+      <p>Cost: 105/-</p>
+      <button onclick="addToCart('Vitamin D2', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoLHERPhQwQg7iY8oiDhkAligTeO5tGLdQgw&s', '105/-')">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 24 Pharmacy. All rights reserved.
+  </div>
+</body>
+</html>

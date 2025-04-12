@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thyroid Tablets - 24 Pharmacy</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #0fbff5;
+      padding: 15px;
+      color: white;
+    }
+    .header img {
+      height: 40px;
+    }
+    .nav-links button {
+      background: transparent;
+      border: 1px solid white;
+      padding: 8px 15px;
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 0 10px;
+      transition: 0.3s;
+    }
+    .nav-links button:hover {
+      background: white;
+      color: #0fbff5;
+    }
+    .navbar {
+      background-color: #9fcffc;
+      padding: 10px;
+      text-align: center;
+      color: white;
+      font-size: 24px;
+    }
+
+    .product-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1300px;
+      margin: auto;
+    }
+
+    .product {
+      background: white;
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      border-radius: 8px;
+    }
+
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+      border-radius: 5px;
+    }
+
+    .product h3 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+    }
+
+    .product p {
+      margin: 3px 0;
+      font-size: 14px;
+    }
+
+    .product button {
+      padding: 10px;
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.3s;
+    }
+
+    .product button:hover {
+      background-color: #333;
+    }
+
+    .footer {
+      background-color: black;
+      text-align: center;
+      padding: 10px;
+      color: white;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+<script>
+  function addToCart(name, image, price) {
+    // Retrieve existing cart or initialize empty array
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Add new product to the cart
+    cart.push({ name, image, price });
+
+    // Save updated cart to localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    // Show a confirmation popup
+    alert(${name} has been added to your cart!);
+
+    // Ask the user if they want to view the cart
+    let choice = confirm("Do you want to view your cart?");
+
+    // Redirect to orders.html if the user clicks OK
+    if (choice) {
+      window.location.href = 'orders.html';
+    }
+  }
+</script>
+</head>
+<body>
+  <div class="header">
+    <img src="pharmacy.jpg" alt="Company Logo">
+    <div class="nav-links">
+      <button onclick="location.href='home.html'">Home</button>
+      <button onclick="location.href='products.html'">Products</button>
+      <button onclick="location.href='orders.html'">Orders</button>
+      <button onclick="location.href='login2.html'">Login</button>
+    </div>
+  </div>
+
+  <div class="navbar">Thyroid Tablets</div>
+
+  <div class="product-container">
+    <!-- 15 Thyroid Tablet Products -->
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/41L8-Kx6mrL.AC_UL320.jpg" alt="Thyronorm 25mcg">
+      <h3>Thyronorm</h3>
+      <p>25 mcg</p>
+      <p>Tablet</p>
+   <button onclick="addToCart('Metformin', 'https://m.media-amazon.com/images/I/41L8-Kx6mrL.AC_UL320.jpg', '?55')">
+  Add to Cart
+</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/71UzqPxjLlL.AC_UL320.jpg" alt="Thyronorm 50mcg">
+      <h3>Thyronorm</h3>
+      <p>50 mcg</p>
+      <p>Tablet</p>
+      <p>Cost: 117/-</p>
+   <button onclick="addToCart('Metformin', 'https://m.media-amazon.com/images/I/71UzqPxjLlL.AC_UL320.jpg', '?55')">
+  Add to Cart
+</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/41L8-Kx6mrL.AC_UL320.jpg" alt="Thyronorm 75mcg">
+      <h3>Thyronorm</h3>
+      <p>75 mcg</p>
+      <p>Tablet</p>
+      <p>Cost: 173/-</p>
+   <button onclick="addToCart('Metformin', 'https://m.media-amazon.com/images/I/41L8-Kx6mrL.AC_UL320.jpg', '?55')">
+  Add to Cart
+</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/71TlEvDLdpL.AC_UL320.jpg" alt="Thyronorm 100mcg">
+      <h3>Thyronorm</h3>
+      <p>100 mcg</p>
+      <p>Tablet</p>
+      <p>Cost: 150/-</p>
+     <button onclick="addToCart('Metformin', 'https://m.media-amazon.com/images/I/41L8-Kx6mrL.AC_UL320.jpg', '?55')">
+  Add to Cart
+</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/51bIMxCxQYL.AC_UL320.jpg" alt="Eltroxin 25mcg">
+      <h3>Eltroxin</h3>
+      <p>25 mcg</p>
+      <p>Tablet</p>
+      <p>Cost: 170/-</p>
+   <button onclick="addToCart('Metformin', 'https://m.media-amazon.com/images/I/41L8-Kx6mrL.AC_UL320.jpg', '?55')">
+  Add to Cart
+</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/61ZXqoLqeEL.AC_UL320.jpg" alt="Eltroxin 50mcg">
+      <h3>Eltroxin</h3>
+      <p>50 mcg</p>
+      <p>Tablet</p>
+      <p>Cost: 101/-</p>
+<button onclick="addToCart('Metformin', 'https://m.media-amazon.com/images/I/41L8-Kx6mrL.AC_UL320.jpg', '?55')">
+  Add to Cart
+</button>
+    </div>
+   
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/71sAQJAueYL.AC_UL320.jpg" alt="Eltroxin 75mcg">
+      <h3>Eltroxin</h3>
+      <p>150 mcg</p>
+      <p>Tablet</p>
+      <p>Cost: 163/-</p>
+     <button onclick="addToCart('Metformin', 'https://m.media-amazon.com/images/I/41L8-Kx6mrL.AC_UL320.jpg', '?55')">
+  Add to Cart
+</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/619sN6m9VTL.AC_UL320.jpg" alt="Eltroxin 100mcg">
+      <h3>Eltroxin</h3>
+      <p>100 mcg</p>
+      <p>Tablet</p>
+      <p>Cost: 155/-</p>
+   <button onclick="addToCart('Metformin', 'https://m.media-amazon.com/images/I/41L8-Kx6mrL.AC_UL320.jpg', '?55')">
+  Add to Cart
+</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/51FANmFUtxL.AC_UL320.jpg" alt="Thyrox 50mcg">
+      <h3>Thyrox</h3>
+      <p>50 mcg</p>
+      <p>Tablet</p>
+      <p>Cost: 117/-</p>
+   <button onclick="addToCart('Metformin', 'https://m.media-amazon.com/images/I/41L8-Kx6mrL.AC_UL320.jpg', '?55')">
+  Add to Cart
+</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/51+C1UuWbpL.AC_UL320.jpg" alt="Thyrox 100mcg">
+      <h3>Thyrox</h3>
+      <p>100 mcg</p>
+      <p>Tablet</p>
+      <p>Cost: 155/-</p>
+<button onclick="addToCart('Metformin', 'https://m.media-amazon.com/images/I/41L8-Kx6mrL.AC_UL320.jpg', '?55')">
+  Add to Cart
+</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/61cFMxMJiCL.AC_UL320.jpg" alt="Euthyrox 50mcg">
+      <h3>Euthyrox</h3>
+      <p>50 mcg</p>
+      <p>Tablet</p>
+      <p>Cost: 101/-</p>
+   <button onclick="addToCart('Metformin', 'https://m.media-amazon.com/images/I/41L8-Kx6mrL.AC_UL320.jpg', '?55')">
+  Add to Cart
+</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/71mIEwlzObL.AC_UL320.jpg" alt="Euthyrox 100mcg">
+      <h3>Euthyrox</h3>
+      <p>100 mcg</p>
+      <p>Tablet</p>
+      <p>Cost: 129/-</p>
+<button onclick="addToCart('Metformin', 'https://m.media-amazon.com/images/I/41L8-Kx6mrL.AC_UL320.jpg', '?55')">
+  Add to Cart
+</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/71Rz4tULttL.AC_UL320.jpg" alt="Thyroup 100mcg">
+      <h3>Thyroup</h3>
+      <p>100 mcg</p>
+      <p>Tablet</p>
+      <p>Cost: 150/-</p>
+<button onclick="addToCart('Metformin', 'https://m.media-amazon.com/images/I/41L8-Kx6mrL.AC_UL320.jpg', '?55')">
+  Add to Cart
+</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/41MsCDo1+ZL.AC_UL320.jpg" alt="Thyrofit 100mcg">
+      <h3>Thyrofit</h3>
+      <p>100 mcg</p>
+      <p>Tablet</p>
+      <p>Cost: 300/-</p>
+<button onclick="addToCart('Metformin', 'https://m.media-amazon.com/images/I/41L8-Kx6mrL.AC_UL320.jpg', '?55')">
+  Add to Cart
+</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/7129NE2iKaL.AC_UL320.jpg" alt="Thyronorm 125mcg">
+      <h3>Thyronorm</h3>
+      <p>125 mcg</p>
+      <p>Tablet</p>
+      <p>Cost: 193/-</p>
+<button onclick="addToCart('Metformin', 'https://m.media-amazon.com/images/I/41L8-Kx6mrL.AC_UL320.jpg', '?55')">
+  Add to Cart
+</button>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    &copy; 2025 24 Pharmacy. All rights reserved.
+  </div>
+</body>
+</html>

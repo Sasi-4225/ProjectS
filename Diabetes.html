@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Diabetes - 24 Pharmacy</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #0fbff5;
+      padding: 15px;
+      color: white;
+    }
+    .header img {
+      height: 40px;
+    }
+    .nav-links button {
+      background: transparent;
+      border: 1px solid white;
+      padding: 8px 15px;
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 0 10px;
+      transition: 0.3s;
+    }
+    .nav-links button:hover {
+      background: white;
+      color: #0fbff5;
+    }
+    .navbar {
+      background-color: #9fcffc;
+      padding: 10px;
+      text-align: center;
+      color: white;
+      font-size: 24px;
+    }
+    .product-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+    .product {
+      background: white;
+      margin: 15px;
+      padding: 15px;
+      width: 250px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      border-radius: 8px;
+    }
+    .product img {
+      max-height: 200px;
+      width: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 5px;
+    }
+    .product h3 {
+      margin: 10px 0 5px;
+    }
+    .product p {
+      margin: 3px 0;
+    }
+    .product button {
+      padding: 10px;
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.3s;
+    }
+    .product button:hover {
+      background-color: #333;
+    }
+    .footer {
+      background-color: black;
+      text-align: center;
+      padding: 10px;
+      color: white;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+  <script>
+  function addToCart(name, image, price) {
+    // Retrieve existing cart or initialize empty array
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Add new product to the cart
+    cart.push({ name, image, price });
+
+    // Save updated cart to localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    // Show a confirmation popup
+    alert(${name} has been added to your cart!);
+
+    // Ask the user if they want to view the cart
+    let choice = confirm("Do you want to view your cart?");
+
+    // Redirect to orders.html if the user clicks OK
+    if (choice) {
+      window.location.href = 'orders.html';
+    }
+  }
+</script>
+</head>
+<body>
+  <div class="header">
+    <img src="pharmacy.jpg" alt="Company Logo" />
+    <div class="nav-links">
+      <button onclick="location.href='home.html'">Home</button>
+      <button onclick="location.href='products.html'">Products</button>
+      <button onclick="location.href='orders.html'">Orders</button>
+      <button onclick="location.href='login2.html'">Login</button>
+    </div>
+  </div>
+
+  <div class="navbar">Diabetes Tablets</div>
+
+  <div class="product-container">
+    <!-- Product Cards -->
+    <div class="product">
+      <img src="https://cdn01.pharmeasy.in/dam/products/246295/glycomet-sr-500mg-strip-of-20-tablets-1-1641534953.jpg" alt="Metformin"/>
+      <h3>Metformin</h3>
+      <p>Strength: 500 mg</p>
+      <p>Imprint: APO 500</p>
+      <p>Color: White</p>
+      <p>Shape: Oval</p>
+      <p><strong>Cost: 55/-</strong></p>
+      <button onclick="addToCart('Metformin', 'https://cdn01.pharmeasy.in/dam/products/246295/glycomet-sr-500mg-strip-of-20-tablets-1-1641534953.jpg', '?55')">
+  Add to Cart
+</button>
+    </div>
+
+    <div class="product">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSP9dDl7eZAuMVJ-rmZ_oLSob0YNJ7yQT_Pw&s" alt="Glipizide"/>
+      <h3>Glipizide</h3>
+      <p>Strength: 10 mg</p>
+      <p>Imprint: GL10</p>
+      <p>Color: Blue</p>
+      <p>Shape: Round</p>
+      <p><strong>Cost: 60/-</strong></p>
+      <button onclick="addToCart('Glipizide', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSP9dDl7eZAuMVJ-rmZ_oLSob0YNJ7yQT_Pw&s', '?60')">
+  Add to Cart
+</button>
+    </div>
+
+    <div class="product">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShhjfFgPfikGPdsEKmY7msUoTsIyhDXCwxvw&s" alt="Glyburide"/>
+      <h3>Glyburide</h3>
+      <p>Strength: 5 mg</p>
+      <p>Imprint: GG 260</p>
+      <p>Color: White</p>
+      <p>Shape: Oval</p>
+      <p><strong>Cost: 65/-</strong></p>
+      <button onclick="addToCart('Glyburide', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShhjfFgPfikGPdsEKmY7msUoTsIyhDXCwxvw&s', '?65')">
+  Add to Cart
+</button>
+    </div>
+
+    <div class="product">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzjqniPSYoqticNKCugmvxrxSL7KBQ9ATTTQ&s" alt="Glimepiride"/>
+      <h3>Glimepiride</h3>
+      <p>Strength: 2 mg</p>
+      <p>Imprint: 9 3 7370</p>
+      <p>Color: Pink</p>
+      <p>Shape: Round</p>
+      <p><strong>Cost: 70/-</strong></p>
+      <button onclick="addToCart('Glimepiride', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzjqniPSYoqticNKCugmvxrxSL7KBQ9ATTTQ&s', '?55')">
+  Add to Cart
+</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/81ex+wXHdTL.AC_UL320.jpg" alt="Sitagliptin"/>
+      <h3>Sitagliptin</h3>
+      <p>Strength: 100 mg</p>
+      <p>Imprint: 277</p>
+      <p>Color: Light Pink</p>
+      <p>Shape: Round</p>
+      <p><strong>Cost: 150/-</strong></p>
+      <button onclick="addToCart('Sitagliptin', 'https://m.media-amazon.com/images/I/81ex+wXHdTL.AC_UL320.jpg', '?150')">
+  Add to Cart
+</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/81YGcId5rfL.AC_UL320.jpg" alt="Pioglitazone"/>
+      <h3>Pioglitazone</h3>
+      <p>Strength: 30 mg</p>
+      <p>Imprint: 4833 V</p>
+      <p>Color: White</p>
+      <p>Shape: Oval</p>
+      <p><strong>Cost: 85/-</strong></p>
+      <button onclick="addToCart('Pioglitazone', 'https://m.media-amazon.com/images/I/81YGcId5rfL.AC_UL320.jpg', '?85')">
+  Add to Cart
+</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/51GrxPkT9PL.AC_UL320.jpg" alt="Canagliflozin"/>
+      <h3>Canagliflozin</h3>
+      <p>Strength: 100 mg</p>
+      <p>Imprint: CFZ100</p>
+      <p>Color: Yellow</p>
+      <p>Shape: Oval</p>
+      <p><strong>Cost: 160/-</strong></p>
+      <button onclick="addToCart('Canagliflozin', 'https://m.media-amazon.com/images/I/51GrxPkT9PL.AC_UL320.jpg', '?160')">
+  Add to Cart
+</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/51pfZ5BKA-L.AC_UL320.jpg" alt="Dapagliflozin"/>
+      <h3>Dapagliflozin</h3>
+      <p>Strength: 10 mg</p>
+      <p>Imprint: 1079</p>
+      <p>Color: Orange</p>
+      <p>Shape: Round</p>
+      <p><strong>Cost: 145/-</strong></p>
+      <button onclick="addToCart('Dapagliflozin', 'https://m.media-amazon.com/images/I/51pfZ5BKA-L.AC_UL320.jpg', '?145')">
+  Add to Cart
+</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/915QXqG5lRL.AC_UL320.jpg" alt="Empagliflozin"/>
+      <h3>Empagliflozin</h3>
+      <p>Strength: 25 mg</p>
+      <p>Imprint: S 25</p>
+      <p>Color: White</p>
+      <p>Shape: Round</p>
+      <p><strong>Cost: 155/-</strong></p>
+      <button onclick="addToCart('Empagliflozin', 'https://m.media-amazon.com/images/I/915QXqG5lRL.AC_UL320.jpg', '?155')">
+  Add to Cart
+</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/61cgDToP6dL.AC_UL320.jpg" alt="Linagliptin"/>
+      <h3>Linagliptin</h3>
+      <p>Strength: 5 mg</p>
+      <p>Imprint: D5</p>
+      <p>Color: Pink</p>
+      <p>Shape: Round</p>
+      <p><strong>Cost: 138/-</strong></p>
+      <button onclick="addToCart('Linagliptin', 'https://m.media-amazon.com/images/I/61cgDToP6dL.AC_UL320.jpg', '?138')">
+  Add to Cart
+</button>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 24 Pharmacy. All rights reserved.
+  </div>
+</body>
+</html>
