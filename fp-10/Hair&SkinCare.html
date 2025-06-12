@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hair & Skin Care - 24 Pharmacy</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #0fbff5;
+      padding: 15px;
+      color: white;
+    }
+    .header img {
+      height: 40px;
+    }
+    .nav-links button {
+      background: transparent;
+      border: 1px solid white;
+      padding: 8px 15px;
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 0 10px;
+      transition: 0.3s;
+    }
+    .nav-links button:hover {
+      background: white;
+      color: #0fbff5;
+    }
+    .navbar {
+      background-color: #9fcffc;
+      padding: 10px;
+      text-align: center;
+      color: white;
+      font-size: 24px;
+    }
+
+    .product-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1300px;
+      margin: auto;
+    }
+
+    .product {
+      background: white;
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      border-radius: 8px;
+    }
+
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+      border-radius: 5px;
+    }
+
+    .product h3 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+    }
+
+    .product p {
+      margin: 3px 0;
+      font-size: 14px;
+    }
+
+    .product button {
+      padding: 10px;
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.3s;
+    }
+
+    .product button:hover {
+      background-color: #333;
+    }
+
+    .footer {
+      background-color: black;
+      text-align: center;
+      padding: 10px;
+      color: white;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+  <script>
+    function addToCart(name, image, price) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push({ name, image, price });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${name} has been added to your cart!`);
+      if (confirm("Do you want to view your cart?")) {
+        window.location.href = 'add to cart.html';
+      }
+    }
+  </script>
+<script>
+  function addToCart(name, image, price) {
+    // Retrieve existing cart or initialize empty array
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Add new product to the cart
+    cart.push({ name, image, price });
+
+    // Save updated cart to localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    // Show a confirmation popup
+    alert(`${name} has been added to your cart!`);
+
+    // Ask the user if they want to view the cart
+    let choice = confirm("Do you want to view your cart?");
+
+    // Redirect to orders.html if the user clicks OK
+    if (choice) {
+      window.location.href = 'add to cart.html';
+    }
+  }
+</script>
+</head>
+<body>
+  <div class="header">
+    <img src="pharmacy.jpg" alt="Company Logo">
+    <div class="nav-links">
+      <button onclick="location.href='home.html'">Home</button>
+      <button onclick="location.href='products.html'">Products</button>
+<button onclick="location.href='add to cart.html'">Add to cart</button>
+      <button onclick="location.href='orders.html'">Orders</button>
+      <button onclick="location.href='login2.html'">Login</button>
+    </div>
+  </div>
+
+  <div class="navbar">Hair & Skin Care</div>
+
+  <div class="product-container">
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/71S3XXC8aFL._AC_UY218_.jpg" alt="Biotin Tablets">
+      <h3>Biotin Tablets</h3>
+      <p>Hair Growth, 10000 mcg</p>
+      <p>Tablet</p>
+      <p>Cost: 299/-</p>
+      <button onclick="addToCart('Biotin Tablets', 'https://m.media-amazon.com/images/I/71S3XXC8aFL._AC_UY218_.jpg', '299/-')">
+Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/718ByG-irCL._AC_UY218_.jpg" alt="Moisturizing Lotion">
+      <h3>Moisturizing Lotion</h3>
+      <p>Dry Skin Relief, 200 ml</p>
+      <p>Lotion</p>
+      <p>Cost: 356/-</p>
+      <button onclick="addToCart('Moisturizing Lotion', 'https://m.media-amazon.com/images/I/718ByG-irCL._AC_UY218_.jpg', '356/-')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/61Vpxtc11GL._AC_UY218_.jpg" alt="Vitamin C Serum">
+      <h3>Vitamin C Serum</h3>
+      <p>Glowing Skin, 30 ml</p>
+      <p>Serum</p>
+      <p>Cost: 1,599/-</p>
+      <button onclick="addToCart('Vitamin C Serum', 'https://m.media-amazon.com/images/I/61Vpxtc11GL._AC_UY218_.jpg', '1,599/-')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/71dhscAHuFL._AC_UL320_.jpg" alt="Hair Oil">
+      <h3>Hair Strengthening Oil</h3>
+      <p>Rose mary leaves, 150 ml</p>
+      <p>Oil</p>
+      <p>Cost: 3,569/-</p>
+      <button onclick="addToCart('Hair Oil', 'https://m.media-amazon.com/images/I/71dhscAHuFL._AC_UL320_.jpg', '3,569/-')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/71ruAO+kSNL._AC_UL320_.jpg" alt="Aloe Vera Gel">
+      <h3>Aloe Vera Gel</h3>
+      <p>Face & Hair, 150 gm</p>
+      <p>Gel</p>
+      <p>Cost: 589/-</p>
+      <button onclick="addToCart('Aloe Vera Gel', 'https://m.media-amazon.com/images/I/71ruAO+kSNL._AC_UL320_.jpg', '589/-')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/51y2kTBplLL._AC_UL320_.jpg" alt="Anti-Dandruff Shampoo">
+      <h3>Anti-Dandruff Shampoo</h3>
+      <p>men & women, 3000 ml</p>
+      <p>Shampoo</p>
+      <p>Cost: 893/-</p>
+      <button onclick="addToCart('Anti-Dandruff Shampoo', 'https://m.media-amazon.com/images/I/51y2kTBplLL._AC_UL320_.jpg', '893/-')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/81IO5adc-JL._AC_UL320_.jpg" alt="Charcoal Face Wash">
+      <h3>Charcoal Face Wash</h3>
+      <p>Deep Clean, 150 ml</p>
+      <p>Face Wash</p>
+      <p>Cost: 199/-</p>
+      <button onclick="addToCart('Charcoal Face Wash', 'https://m.media-amazon.com/images/I/81IO5adc-JL._AC_UL320_.jpg', '199/-')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/51LG5B42-wL._AC_UL320_.jpg" alt="Sunscreen SPF 50">
+      <h3>Sunscreen SPF 50</h3>
+      <p>Broad Spectrum, 100 gm</p>
+      <p>Lotion</p>
+      <p>Cost: 2,099/-</p>
+      <button onclick="addToCart('Sunscreen SPF 50', 'https://m.media-amazon.com/images/I/51LG5B42-wL._AC_UL320_.jpg', '2,099/-')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/61uIaNfbNaL._AC_UL320_.jpg" alt="Kojic Acid Cream">
+      <h3>Kojic Acid Cream</h3>
+      <p>Skin Brightening, 30 gm</p>
+      <p>Cream</p>
+      <p>Cost: 629/-</p>
+      <button onclick="addToCart('Kojic Acid Cream', 'https://m.media-amazon.com/images/I/61uIaNfbNaL._AC_UL320_.jpg', '629/-')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/51xz09Lpy2L._AC_UL320_.jpg" alt="Night Repair Cream">
+      <h3>Night Repair Cream</h3>
+      <p>Anti-Aging, 50 gm</p>
+      <p>Cream</p>
+      <p>Cost: 1,076/-</p>
+      <button onclick="addToCart('Night Repair Cream', 'https://m.media-amazon.com/images/I/51xz09Lpy2L._AC_UL320_.jpg', '1,076/-')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/81VMaFOlNmL._AC_UL320_.jpg" alt="Neem Face Pack">
+      <h3>Neem Face Pack</h3>
+      <p>Anti-Acne, 100 gm</p>
+      <p>Pack</p>
+      <p>Cost: 199/-</p>
+      <button onclick="addToCart('Neem Face Pack', 'https://m.media-amazon.com/images/I/81VMaFOlNmL._AC_UL320_.jpg', '199/-')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/61QCi0ri29L._AC_UL320_.jpg" alt="Hair Fall Control Shampoo">
+      <h3>Hair Fall Control Shampoo</h3>
+      <p>Keratin Boost, 250 ml</p>
+      <p>Shampoo</p>
+      <p>Cost: 599/-</p>
+      <button onclick="addToCart('Hair Fall Control Shampoo', 'https://m.media-amazon.com/images/I/61QCi0ri29L._AC_UL320_.jpg', '599/-')">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 24 Pharmacy. All rights reserved.
+  </div>
+</body>
+</html>

@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Diabetes - 24 Pharmacy</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #0fbff5;
+      padding: 15px;
+      color: white;
+    }
+    .header img {
+      height: 40px;
+    }
+    .nav-links button {
+      background: transparent;
+      border: 1px solid white;
+      padding: 8px 15px;
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 0 10px;
+      transition: 0.3s;
+    }
+    .nav-links button:hover {
+      background: white;
+      color: #0fbff5;
+    }
+    .navbar {
+      background-color: #9fcffc;
+      padding: 10px;
+      text-align: center;
+      color: white;
+      font-size: 24px;
+    }
+    .product-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+    .product {
+      background: white;
+      margin: 15px;
+      padding: 15px;
+      width: 250px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      border-radius: 8px;
+    }
+    .product img {
+      max-height: 200px;
+      width: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 5px;
+    }
+    .product h3 {
+      margin: 10px 0 5px;
+    }
+    .product p {
+      margin: 3px 0;
+    }
+    .product button {
+      padding: 10px;
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.3s;
+    }
+    .product button:hover {
+      background-color: #333;
+    }
+    .footer {
+      background-color: black;
+      text-align: center;
+      padding: 10px;
+      color: white;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+  <script>
+    function addToCart(name, image, price) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push({ name, image, price });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${name} has been added to your cart!`);
+      if (confirm("Do you want to view your cart?")) {
+        window.location.href = 'add to cart.html';
+      }
+    }
+  </script>
+<script>
+  function addToCart(name, image, price) {
+    // Retrieve existing cart or initialize empty array
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Add new product to the cart
+    cart.push({ name, image, price });
+
+    // Save updated cart to localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    // Show a confirmation popup
+    alert(`${name} has been added to your cart!`);
+
+    // Ask the user if they want to view the cart
+    let choice = confirm("Do you want to view your cart?");
+
+    // Redirect to orders.html if the user clicks OK
+    if (choice) {
+      window.location.href = 'add to cart.html';
+    }
+  }
+</script>
+</script>
+</head>
+<body>
+  <div class="header">
+    <img src="pharmacy.jpg" alt="Company Logo" />
+    <div class="nav-links">
+      <button onclick="location.href='home.html'">Home</button>
+      <button onclick="location.href='products.html'">Products</button>
+<button onclick="location.href='add to cart.html'">add to cart</button>
+
+      <button onclick="location.href='orders.html'">Orders</button>
+      <button onclick="location.href='login2.html'">Login</button>
+    </div>
+  </div>
+
+ 
+     <div class="navbar">Fever & Infection Products</div>
+  <div class="product-container">
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/71YOVObQwKL.AC_UL320.jpg" alt="Paracetamol">
+      <h3>Paracetamol</h3>
+      <p>Strength: 500 mg</p>
+      <p>Form: Tablet</p>
+      <p><strong>Cost: 20/-</strong></p>
+      <button onclick="addToCart('Paracetamol', 'https://m.media-amazon.com/images/I/71YOVObQwKL.AC_UL320.jpg', 20)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/81gexqzxHLL.AC_UY218.jpg" alt="Ibuprofen">
+      <h3>Ibuprofen</h3>
+      <p>Strength: 200 mg</p>
+      <p>Form: Tablet</p>
+      <p><strong>Cost: 30/-</strong></p>
+      <button onclick="addToCart('Ibuprofen', 'https://m.media-amazon.com/images/I/81gexqzxHLL.AC_UY218.jpg', 30)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/71lrVA32oZL.AC_UY218.jpg" alt="Azithromycin">
+      <h3>Azithromycin</h3>
+      <p>Strength: 500 mg</p>
+      <p>Form: Tablet</p>
+      <p><strong>Cost: 85/-</strong></p>
+      <button onclick="addToCart('Azithromycin', 'https://m.media-amazon.com/images/I/71lrVA32oZL.AC_UY218.jpg', 85)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/51MfXZjAbTL.AC_UY218.jpg" alt="Amoxicillin">
+      <h3>Amoxicillin</h3>
+      <p>Strength: 625 mg</p>
+      <p>Form: Tablet</p>
+      <p><strong>Cost: 60/-</strong></p>
+      <button onclick="addToCart('Amoxicillin', 'https://m.media-amazon.com/images/I/51MfXZjAbTL.AC_UY218.jpg', 60)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/91H-YDsqmTL.AC_UY218.jpg" alt="Ciprofloxacin">
+      <h3>Ciprofloxacin</h3>
+      <p>Strength: 500 mg</p>
+      <p>Form: Tablet</p>
+      <p><strong>Cost: 90/-</strong></p>
+      <button onclick="addToCart('Ciprofloxacin', 'https://m.media-amazon.com/images/I/91H-YDsqmTL.AC_UY218.jpg', 90)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/91bz6RZlHZL.AC_UY218.jpg" alt="Dolo 650">
+      <h3>Dolo 650</h3>
+      <p>Strength: 650 mg</p>
+      <p>Form: Tablet</p>
+      <p><strong>Cost: 22/-</strong></p>
+      <button onclick="addToCart('Dolo 650', 'https://m.media-amazon.com/images/I/91bz6RZlHZL.AC_UY218.jpg', 22)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/61ih2brrqZL.AC_UY218.jpg" alt="Metronidazole">
+      <h3>Metronidazole</h3>
+      <p>Strength: 2%</p>
+      <p>Form: Tablet</p>
+      <p><strong>Cost: 50/-</strong></p>
+      <button onclick="addToCart('Metronidazole', 'https://m.media-amazon.com/images/I/61ih2brrqZL.AC_UY218.jpg', 50)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/61nEvOBp8WL.AC_UY218.jpg" alt="Cephalexin">
+      <h3>Cephalexin</h3>
+      <p>Strength: 500 mg</p>
+      <p>Form: Tablet</p>
+      <p><strong>Cost: 55/-</strong></p>
+      <button onclick="addToCart('Cephalexin', 'https://m.media-amazon.com/images/I/61nEvOBp8WL.AC_UY218.jpg', 55)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/91tnG+ok6wL.AC_UY218.jpg" alt="Ofloxacin">
+      <h3>Ofloxacin</h3>
+      <p>Strength: 200 mg</p>
+      <p>Form: Tablet</p>
+      <p><strong>Cost: 40/-</strong></p>
+      <button onclick="addToCart('Ofloxacin', 'https://m.media-amazon.com/images/I/91tnG+ok6wL.AC_UY218.jpg', 40)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/61QTInwowqL.AC_UY218.jpg" alt="Clarithromycin">
+      <h3>Clarithromycin</h3>
+      <p>Strength: 500 mg</p>
+      <p>Form: Tablet</p>
+      <p><strong>Cost: 75/-</strong></p>
+      <button onclick="addToCart('Clarithromycin', 'https://m.media-amazon.com/images/I/61QTInwowqL.AC_UY218.jpg', 75)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 24 Pharmacy. All rights reserved.
+  </div>
+</body>
+</html>

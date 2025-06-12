@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - 24 Pharmacy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #0fbff5;
+            padding: 15px;
+            color: white;
+        }
+        .header img {
+            height: 40px;
+        }
+        .nav-links button {
+            background: transparent;
+            border: 1px solid white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+        .nav-links button:hover {
+            background: white;
+            color: #0fbff5;
+        }
+        .navbar {
+            background-color: #9fcffc;
+            padding: 10px;
+            text-align: center;
+            color: white;
+            font-size: 24px;
+        }
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .product {
+            position: relative;
+            background: white;
+            margin: 15px;
+            padding: 0;
+            width: 250px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .product button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .product button:hover {
+            background-color: #333;
+        }
+        .footer {
+            background-color: black;
+            text-align: center;
+            padding: 10px;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="pharmacy.jpg" alt="Company Logo">
+        <div class="nav-links">
+            <button onclick="location.href='home.html'">Home</button>
+            <button onclick="location.href='products.html'">Products</button>
+	    <button onclick="location.href='add to cart.html'">Add to cart</button>
+            <button onclick="location.href='orders.html'">Orders</button>
+            <button onclick="location.href='login2.html'">Login</button>
+        </div>
+    </div>
+    
+    <div class="navbar">Our Products</div>
+
+    <div class="product-container">
+        <div class="product">
+            <img src="cfomyd54.png" alt="Vitamins">
+            <button onclick="location.href='Vitamins.html'">Vitamins</button>
+        </div>
+        <div class="product">
+            <img src="paewre4t.png" alt="Diabetes">
+            <button onclick="location.href='Diabetes.html'">Diabetes</button>
+        </div>
+        <div class="product">
+            <img src="30a76rt8.png" alt="Fever & Infection">
+            <button onclick="location.href='Fever&infection.html'">Fever & Infection</button>
+        </div>
+        <div class="product">
+            <img src="pcu4umkk.png" alt="Hair & Skin Care">
+            <button onclick="location.href='Hair&SkinCare.html'">Hair & Skin Care</button>
+        </div>
+        <div class="product">
+            <img src="wjrcvqe1.png" alt="Thyroid">
+            <button onclick="location.href='Thyroid.html'">Thyroid</button>
+        </div>
+        <div class="product">
+            <img src="gxt71xw1.png" alt="Women Care">
+            <button onclick="location.href='WomenCare.html'">Women Care</button>
+        </div>
+        <div class="product">
+            <img src="mwbuf4tt.png" alt="Heart">
+            <button onclick="location.href='Heart.html'">Heart</button>
+        </div>
+        <div class="product">
+            <img src="tq1wxhqm.png" alt="Bone Health">
+            <button onclick="location.href='BoneHealth.html'">Bone Health</button>
+        </div>
+        
+    </div>
+
+    <div class="footer">
+        &copy; 2025 Pharmacy Store. All rights reserved.
+    </div>
+</body>
+</html>

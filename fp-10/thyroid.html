@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thyroid Tablets - 24 Pharmacy</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #0fbff5;
+      padding: 15px;
+      color: white;
+    }
+    .header img {
+      height: 40px;
+    }
+    .nav-links button {
+      background: transparent;
+      border: 1px solid white;
+      padding: 8px 15px;
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 0 10px;
+      transition: 0.3s;
+    }
+    .nav-links button:hover {
+      background: white;
+      color: #0fbff5;
+    }
+    .navbar {
+      background-color: #9fcffc;
+      padding: 10px;
+      text-align: center;
+      color: white;
+      font-size: 24px;
+    }
+    .product-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1300px;
+      margin: auto;
+    }
+    .product {
+      background: white;
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      border-radius: 8px;
+    }
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+      border-radius: 5px;
+    }
+    .product h3 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+    }
+    .product p {
+      margin: 3px 0;
+      font-size: 14px;
+    }
+    .product button {
+      padding: 10px;
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.3s;
+    }
+    .product button:hover {
+      background-color: #333;
+    }
+    .footer {
+      background-color: black;
+      text-align: center;
+      padding: 10px;
+      color: white;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+  <script>
+    function addToCart(name, image, price) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push({ name, image, price });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(name + " has been added to your cart!");
+      let choice = confirm("Do you want to view your cart?");
+      if (choice) {
+        window.location.href = 'orders.html';
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="header">
+    <img src="pharmacy.jpg" alt="Company Logo">
+    <div class="nav-links">
+      <button onclick="location.href='home.html'">Home</button>
+      <button onclick="location.href='products.html'">Products</button>
+      <button onclick="location.href='add to cart.html'">Add to cart</button>
+      <button onclick="location.href='orders.html'">Orders</button>
+      <button onclick="location.href='login2.html'">Login</button>
+    </div>
+  </div>
+
+  <div class="navbar">Thyroid Tablets</div>
+
+  <div class="product-container">
+    <!-- 15 Products -->
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/71UzqPxjLlL.AC_UL320.jpg" alt="Thyronorm 50mcg">
+      <h3>Thyronorm</h3>
+      <p>Strength: 50 mcg</p>
+      <p>Form: Tablet</p>
+      <p>Cost: 117/-</p>
+      <button onclick="addToCart('Thyronorm 50mcg', this.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.src, '117/-')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/41L8-Kx6mrL.AC_UL640_FMwebp_QL65.jpg" alt="Thyronorm 75mcg">
+      <h3>Thyronorm</h3>
+      <p>Strength: 75 mcg</p>
+      <p>Form: Tablet</p>
+      <p>Cost: 142/-</p>
+      <button onclick="addToCart('Thyronorm 75mcg', this.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.src, '142/-')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/51bIMxCxQYL.AC_UL320.jpg" alt="Eltroxin 25mcg">
+      <h3>Eltroxin</h3>
+      <p>Strength: 25 mcg</p>
+      <p>Form: Tablet</p>
+      <p>Cost: 170/-</p>
+      <button onclick="addToCart('Eltroxin 25mcg', this.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.src, '170/-')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/61ZXqoLqeEL.AC_UL640_FMwebp_QL65.jpg" alt="Eltroxin 50mcg">
+      <h3>Eltroxin</h3>
+      <p>Strength: 50 mcg</p>
+      <p>Form: Tablet</p>
+      <p>Cost: 135/-</p>
+      <button onclick="addToCart('Eltroxin 50mcg', this.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.src, '135/-')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/61rnVH4YoEL.AC_UL640_FMwebp_QL65.jpg" alt="Eltroxin 100mcg">
+      <h3>Eltroxin</h3>
+      <p>Strength: 100 mcg</p>
+      <p>Form: Tablet</p>
+      <p>Cost: 160/-</p>
+      <button onclick="addToCart('Eltroxin 100mcg', this.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.src, '160/-')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://images.apollo247.in/pub/media/catalog/product/t/h/thy0256_1.jpg?tr=q-80,f-webp,w-150,dpr-2,c-at_max" alt="Thyrofit 25mcg">
+      <h3>Thyrofit</h3>
+      <p>Strength: 25 mcg</p>
+      <p>Form: Tablet</p>
+      <p>Cost: 140/-</p>
+      <button onclick="addToCart('Thyrofit 25mcg', this.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.src, '140/-')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://images.apollo247.in/pub/media/catalog/product/t/h/thy0255.jpg?tr=w-264,q-80,f-webp,dpr-2,c-at_max" alt="Thyrofit 50mcg">
+      <h3>Thyrofit</h3>
+      <p>Strength: 50 mcg</p>
+      <p>Form: Tablet</p>
+      <p>Cost: 120/-</p>
+      <button onclick="addToCart('Thyrofit 50mcg', this.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.src, '120/-')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://images.apollo247.in/pub/media/catalog/product/t/h/thy0257.jpg?tr=q-80,f-webp,w-150,dpr-2,c-at_max" alt="Thyrofit 75mcg">
+      <h3>Thyrofit</h3>
+      <p>Strength: 75 mcg</p>
+      <p>Form: Tablet</p>
+      <p>Cost: 135/-</p>
+      <button onclick="addToCart('Thyrofit 75mcg', this.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.src, '135/-')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/51qdTzRxhIL.AC_UL640_FMwebp_QL65.jpg" alt="Thyrox 25mcg">
+      <h3>Thyrox</h3>
+      <p>Strength: 25 mcg</p>
+      <p>Form: Tablet</p>
+      <p>Cost: 150/-</p>
+      <button onclick="addToCart('Thyrox 25mcg', this.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.src, '150/-')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/51FANmFUtxL.AC_UL640_FMwebp_QL65.jpg" alt="Thyrox 50mcg">
+      <h3>Thyrox</h3>
+      <p>Strength: 50 mcg</p>
+      <p>Form: Tablet</p>
+      <p>Cost: 125/-</p>
+      <button onclick="addToCart('Thyrox 50mcg', this.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.src, '125/-')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/51+C1UuWbpL.AC_UL640_FMwebp_QL65.jpg" alt="Thyrox 100mcg">
+      <h3>Thyrox</h3>
+      <p>Strength: 100 mcg</p>
+      <p>Form: Tablet</p>
+      <p>Cost: 170/-</p>
+      <button onclick="addToCart('Thyrox 100mcg', this.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.src, '170/-')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://rukminim2.flixcart.com/image/612/612/kjhgzgw0-0/book/j/3/s/70-years-of-levothyroxine-original-imafzfn58zhwdhef.jpeg?q=70" alt="Levothyroxine Sodium 50mcg">
+      <h3>Levothyroxine</h3>
+      <p>Strength: 50 mcg</p>
+      <p>Form: Tablet</p>
+      <p>Cost: 138/-</p>
+      <button onclick="addToCart('Levothyroxine 50mcg', this.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.src, '138/-')">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 24 Pharmacy. All rights reserved.
+  </div>
+</body>
+</html>

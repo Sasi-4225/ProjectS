@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment - 24 Pharmacy</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #0fbff5;
+      padding: 15px;
+      color: white;
+    }
+    .header img {
+      height: 40px;
+    }
+    .nav-links button {
+      background: transparent;
+      border: 1px solid white;
+      padding: 8px 15px;
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 0 10px;
+      transition: 0.3s;
+    }
+    .nav-links button:hover {
+      background: white;
+      color: #0fbff5;
+    }
+    .navbar {
+      background-color: #9fcffc;
+      padding: 10px;
+      text-align: center;
+      color: white;
+      font-size: 24px;
+    }
+    .payment-container {
+      width: 90%;
+      max-width: 500px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+    .order-summary {
+      padding: 10px;
+      border-bottom: 2px solid #ddd;
+      margin-bottom: 15px;
+    }
+    .input-field {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .pay-btn {
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .pay-btn:hover {
+      background-color: #333;
+    }
+    .footer {
+      background-color: black;
+      text-align: center;
+      padding: 10px;
+      color: white;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="pharmacy.jpg" alt="Company Logo">
+    <div class="nav-links">
+      <button onclick="location.href='home.html'">Home</button>
+      <button onclick="location.href='products.html'">Products</button>
+      <button onclick="location.href='add to cart.html'">Add to cart</button>
+      <button onclick="location.href='orders.html'">Orders</button>
+      <button onclick="location.href='login2.html'">Login</button>
+    </div>
+  </div>
+
+  <div class="navbar">Add to cart</div>
+
+  <div class="payment-container">
+    <h2>Order Summary</h2>
+    <div class="order-summary" id="orderSummary">
+      <p><strong>Name:</strong> <span id="userName"></span></p>
+      <p><strong>Phone:</strong> <span id="userPhone"></span></p>
+      <p><strong>Address:</strong> <span id="userAddress"></span></p>
+      <p><strong>Bill Amount:</strong> ₹<span id="billAmount"></span></p>
+    </div>
+
+    <h2>Payment Details</h2>
+
+
+    <select class="input-field" id="paymentMethod" onchange="togglePaymentFields()">
+      <option value="cod">Cash on Delivery (COD)</option>
+      <option value="upi">UPI</option>
+      <option value="credit_card">Credit Card</option>
+      <option value="debit_card">Debit Card</option>
+    </select>
+
+    <input type="text" id="upiNumber" class="input-field" placeholder="Enter UPI Number" style="display: none;">
+    <input type="text" id="cardNumber" class="input-field" placeholder="Card Number" style="display: none;">
+    <input type="text" id="cvv" class="input-field" placeholder="CVV" style="display: none;">
+
+<h2>Upload Prescription</h2>
+    <input type="file" id="prescriptionUpload" class="input-field" accept="image/*">
+    
+    <button class="pay-btn" onclick="completePayment()">Complete Payment</button>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 24 Pharmacy. All rights reserved.
+  </div>
+
+  <script>
+    function loadOrderDetails() {
+      const user = JSON.parse(localStorage.getItem("tempUser"));
+      const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+      if (!user || cartItems.length === 0) {
+        alert("Missing order or cart details.");
+        window.location.href = "add to cart.html";
+        return;
+      }
+
+      document.getElementById("userName").textContent = user.name;
+      document.getElementById("userPhone").textContent = user.phone;
+      document.getElementById("userAddress").textContent = user.address;
+
+      const total = cartItems.reduce((sum, item) => sum + parseFloat(item.price), 0);
+      document.getElementById("billAmount").textContent = total.toFixed(2);
+    }
+
+    function togglePaymentFields() {
+      const method = document.getElementById("paymentMethod").value;
+      document.getElementById("upiNumber").style.display = method === "upi" ? "block" : "none";
+      const cardFieldsVisible = method === "credit_card" || method === "debit_card";
+      document.getElementById("cardNumber").style.display = cardFieldsVisible ? "block" : "none";
+      document.getElementById("cvv").style.display = cardFieldsVisible ? "block" : "none";
+    }
+
+    function completePayment() {
+      const method = document.getElementById("paymentMethod").value;
+      const upi = document.getElementById("upiNumber").value.trim();
+      const card = document.getElementById("cardNumber").value.trim();
+      const cvv = document.getElementById("cvv").value.trim();
+      const prescriptionFile = document.getElementById("prescriptionUpload").files[0];
+
+      if (method === "upi" && !upi) {
+        alert("Enter your UPI ID.");
+        return;
+      }
+      if ((method === "credit_card" || method === "debit_card") && (!card || !cvv)) {
+        alert("Enter full card details.");
+        return;
+      }
+
+      const reader = new FileReader();
+
+      reader.onload = function () {
+        const prescriptionData = reader.result;
+
+        const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+        const user = JSON.parse(localStorage.getItem("tempUser"));
+        const existingOrders = JSON.parse(localStorage.getItem("orders")) || [];
+
+        const newOrders = cartItems.map(item => ({
+          ...item,
+          user,
+          prescription: prescriptionData,
+          status: "Placed"
+        }));
+
+        localStorage.setItem("orders", JSON.stringify([...existingOrders, ...newOrders]));
+        localStorage.removeItem("cart");
+        localStorage.removeItem("tempUser");
+
+        alert("Payment successful! Your order has been placed.");
+        window.location.href = "orders.html";
+      };
+
+      if (prescriptionFile) {
+        reader.readAsDataURL(prescriptionFile);
+      } else {
+        alert("Please upload your prescription image.");
+      }
+    }
+
+    window.onload = loadOrderDetails;
+  </script>
+</body>
+</html>
